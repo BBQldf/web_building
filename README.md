@@ -17,13 +17,13 @@ Jquery
 整个系统涉及到的编程语言包含Python、Html5、JQuery、CSS3以及MySQL数据库编程.用到的框架是Django重量级web框架，通过该框架连接系统的前、后端。
 用户首先需要填写用户名、密码以及邮箱注册系统，然后才能登陆推荐系统.进入首页后会看到8个电影分类，包括恐怖片、动作片、剧情片等.用户需要给自己看过的电影进行评分，评分起止为0.5-5.0分，共10个分段.每评价一部电影就要点击一下提交按钮，将所评分的电影的imdbId号以及对应的评分存入数据库中.用户点击“推荐结果”按钮，系统就调用推荐算法遍历数据库所存数据，得出推荐列表之后将结果反馈给浏览器，同时调取数据库所存电影海报图片进行展示.用户点击自己登陆的昵称，会跳转页面显示自己已经评价过的电影.
 ## 项目架构
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235314.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001345.png)
 
 ## 项目效果
 1. 基于用户的预测
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235410.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001417.png)
 2. 基于电影的推荐
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235455.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001437.png)
 
 # 原理：
 基于用户(user-based)的协同过滤推荐算法
@@ -60,15 +60,15 @@ p为用户x对电影m的预测评分，s表示用户x的近邻用户，在本文
 
 ## 数据库E-R设计
 1. 用户E-R图
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235632.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001511.png)
 2. 电影E-R图
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235710.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001608.png)
 3. 推荐结果E-R图
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235809.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001641.png)
 4. 用户评分E-R图
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235829.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001722.png)
 5. 系统E-R图
-![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235859.png)
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220807001800.png)
 
 
 # 总结

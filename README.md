@@ -3,8 +3,27 @@
 武汉大学国家网络安全学院暑期实训项目，最佳项目奖，最佳算法奖
 
 环境：
-Python
+Python-3.6
 django
+Html5
+CSS3
+Jquery
+
+# 项目介绍
+## 动机
+现在电影资源是网络资源的重要组成部分，随着网络上电影资源的数量越来越庞大，设计电影个性化推荐系统迫在眉睫。所以本文旨在为每一个用户推荐与其兴趣爱好契合度较高的电影。本系统包含电影前端展示界面、电影评分板块、推荐算法的实现以及后端数据库的设计。
+系统采用由grouplens项目组从美国著名电影网站movielens整理的ml-latest-small数据集，该数据集包含了671个用户对9000多部电影的10万条评分数据。首先将该数据集包含的全部文件经过筛选重组之后存储到建好的数据库中，并将数据集按一定比例划分为训练集和测试集，对训练集进行算法分析生成Top-K个性化电影推荐列表，然后在测试集上对算法进行评测，包括准确率（Precision）、召回率(Recall)两种评测指标。
+## 项目组成
+整个系统涉及到的编程语言包含Python、Html5、JQuery、CSS3以及MySQL数据库编程.用到的框架是Django重量级web框架，通过该框架连接系统的前、后端。
+用户首先需要填写用户名、密码以及邮箱注册系统，然后才能登陆推荐系统.进入首页后会看到8个电影分类，包括恐怖片、动作片、剧情片等.用户需要给自己看过的电影进行评分，评分起止为0.5-5.0分，共10个分段.每评价一部电影就要点击一下提交按钮，将所评分的电影的imdbId号以及对应的评分存入数据库中.用户点击“推荐结果”按钮，系统就调用推荐算法遍历数据库所存数据，得出推荐列表之后将结果反馈给浏览器，同时调取数据库所存电影海报图片进行展示.用户点击自己登陆的昵称，会跳转页面显示自己已经评价过的电影.
+## 项目架构
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235314.png)
+
+## 项目效果
+1. 基于用户的预测
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235410.png)
+2. 基于电影的推荐
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235455.png)
 
 # 原理：
 基于用户(user-based)的协同过滤推荐算法
@@ -38,3 +57,24 @@ for line in file.readlines():
 ![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220306173956.png)
 
 p为用户x对电影m的预测评分，s表示用户x的近邻用户，在本文中数量为10个。目标用户的近邻集合为Im。我们将最终得到的预测结果放到统一的集合中，并将预测结果进行降序排序，得到最终的电影推荐结果，并将结果输出。
+
+## 数据库E-R设计
+1. 用户E-R图
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235632.png)
+2. 电影E-R图
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235710.png)
+3. 推荐结果E-R图
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235809.png)
+4. 用户评分E-R图
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235829.png)
+5. 系统E-R图
+![](https://raw.githubusercontent.com/BBQldf/PicGotest/master/20220806235859.png)
+
+
+# 总结
+本文工作完成了一个简单的个性化电影推荐系统，仍然还有很多地方不足需要进一步完善，主要有以下几个方面：
+1. 采用的算法效率不够高。目前的算法是个经典算法，运行效率不高，速度很慢，后期可以考虑结合基于标签和基于内容的推荐算法进行推荐
+2.本系统使用的是用户对电影的历史评分数据，这些数据都存在一定的稀疏性。登录用户看过的电影可能很少，这样就导致他和数据库中所存用户评过分的电影有较少的交叉项目，使得计算出的相似度很不准确。之后可以用更大的数据集，考虑遍历百万条评分数据来进行推荐
+
+
+
